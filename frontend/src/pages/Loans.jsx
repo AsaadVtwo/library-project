@@ -380,7 +380,10 @@ export default function Loans() {
                                 <label htmlFor="due_date" className="block text-sm font-medium text-gray-700">تاريخ الإرجاع</label>
                                 <div className="relative mt-1">
                                     {/* Custom Display Div */}
-                                    <div className="w-full border border-gray-300 rounded-md shadow-sm py-2.5 px-3 bg-white text-gray-900 sm:text-sm h-[42px] flex items-center justify-end" dir="ltr">
+                                    <div className="w-full border border-gray-300 rounded-md shadow-sm py-2.5 px-3 bg-white text-gray-900 sm:text-sm h-[42px] flex items-center justify-between" dir="ltr">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
                                         {formData.due_date ? (
                                             <span className="font-sans font-medium">{formData.due_date}</span>
                                         ) : (
