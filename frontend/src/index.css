@@ -3,3 +3,21 @@
 body {
     font-family: "Cairo", sans-serif;
 }
+
+/* Fix for date input on mobile devices in RTL layout */
+.force-ltr-date {
+    direction: ltr !important;
+    text-align: right !important;
+    unicode-bidi: isolate !important;
+}
+
+/* Align the internal date parts to the right */
+.force-ltr-date::-webkit-datetime-edit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Ensure the calendar icon stays on the left (or right depending on preference, but usually left in LTR) */
+.force-ltr-date::-webkit-calendar-picker-indicator {
+    direction: ltr;
+}

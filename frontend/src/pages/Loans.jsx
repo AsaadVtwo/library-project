@@ -378,21 +378,18 @@ export default function Loans() {
 
                             <div>
                                 <label htmlFor="due_date" className="block text-sm font-medium text-gray-700">تاريخ الإرجاع</label>
-                                <div dir="ltr" className="w-full">
-                                    <input
-                                        type="date"
-                                        name="due_date"
-                                        id="due_date"
-                                        required
-                                        value={formData.due_date}
-                                        onChange={e => {
-                                            setFormData({ ...formData, due_date: e.target.value })
-                                            setLoanDuration('custom')
-                                        }}
-                                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border p-2.5 text-right font-sans"
-                                        style={{ direction: 'ltr', textAlign: 'right' }}
-                                    />
-                                </div>
+                                <input
+                                    type="date"
+                                    name="due_date"
+                                    id="due_date"
+                                    required
+                                    value={formData.due_date}
+                                    onChange={e => {
+                                        setFormData({ ...formData, due_date: e.target.value })
+                                        setLoanDuration('custom')
+                                    }}
+                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border p-2.5 force-ltr-date font-sans"
+                                />
                                 {errors.due_date && <p className="mt-1 text-xs text-red-600 font-semibold">{errors.due_date}</p>}
                             </div>
                         </div>
