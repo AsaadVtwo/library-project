@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import api from '../api'
 
 export default function Loans() {
@@ -8,6 +8,9 @@ export default function Loans() {
     const [formData, setFormData] = useState({ book_id: '', user_id: '', due_date: '' })
     const [loanDuration, setLoanDuration] = useState('14')
     const [errors, setErrors] = useState({})
+
+    // Ref for date input to programmatically open picker on desktop
+    const dateInputRef = useRef(null)
 
     // Search states
     const [bookSearch, setBookSearch] = useState('')
@@ -378,7 +381,10 @@ export default function Loans() {
 
                             <div>
                                 <label htmlFor="due_date" className="block text-sm font-medium text-gray-700">تاريخ الإرجاع</label>
-                                <div className="relative mt-1">
+                                <div
+                                    className="relative mt-1 cursor-pointer"
+                                    onClick={() => dateInputRef.current?.showPicker()}
+                                >
                                     {/* Custom Display Div */}
                                     <div className="w-full border border-gray-300 rounded-md shadow-sm py-2.5 px-3 bg-white text-gray-900 sm:text-sm h-[42px] flex items-center justify-between" dir="ltr">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -396,6 +402,7 @@ export default function Loans() {
                                         type="date"
                                         name="due_date"
                                         id="due_date"
+                                        ref={dateInputRef}
                                         required
                                         value={formData.due_date}
                                         onChange={e => {
@@ -415,10 +422,10 @@ export default function Loans() {
                         </div>
                     </form>
                 </div>
-            </div>
+            </div >
 
             {/* Active Loans List */}
-            <div className="bg-white shadow-md rounded-xl border border-gray-100 overflow-hidden">
+            < div className="bg-white shadow-md rounded-xl border border-gray-100 overflow-hidden" >
                 <div className="px-6 py-5 border-b border-gray-100 bg-gray-50 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <h3 className="text-lg font-bold text-gray-800">الإعارات النشطة</h3>
                     <div className="relative w-full sm:w-64">
@@ -492,7 +499,7 @@ export default function Loans() {
                         })
                     )}
                 </ul>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
