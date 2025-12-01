@@ -228,7 +228,7 @@ export default function Dashboard() {
                                 <div className="px-6 py-5">
                                     <div className="flex items-center justify-between">
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-lg font-bold text-indigo-700 truncate">{book.title}</p>
+                                            <p className="text-lg font-bold text-indigo-700">{book.title}</p>
                                             <div className="mt-1 flex items-center text-sm text-gray-500 gap-4">
                                                 <span className="flex items-center gap-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
