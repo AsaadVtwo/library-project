@@ -171,7 +171,7 @@ export default function Loans() {
     const formatDate = (dateString) => {
         if (!dateString) return ''
         const date = new Date(dateString)
-        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+        return date.toLocaleDateString('en-GB') // DD/MM/YYYY
     }
 
     // Filtered lists
@@ -436,27 +436,27 @@ export default function Loans() {
                             return (
                                 <li key={loan.id} className={`hover:bg-gray-50 transition-colors ${isOverdue ? "bg-red-50 hover:bg-red-100" : ""}`}>
                                     <div className="px-6 py-4">
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex items-center gap-4">
-                                                <div className={`p-2 rounded-full ${isOverdue ? 'bg-red-100 text-red-600' : 'bg-indigo-100 text-indigo-600'}`}>
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                            <div className="flex items-start sm:items-center gap-4">
+                                                <div className={`p-2 rounded-full flex-shrink-0 ${isOverdue ? 'bg-red-100 text-red-600' : 'bg-indigo-100 text-indigo-600'}`}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                                     </svg>
                                                 </div>
                                                 <div>
                                                     <p className="text-sm font-bold text-gray-900">إعارة #{loan.id}</p>
-                                                    <div className="flex gap-4 mt-1 text-xs text-gray-500">
+                                                    <div className="flex flex-col sm:flex-row sm:gap-4 mt-1 text-xs text-gray-500">
                                                         <span>{book ? book.title : `كتاب ID: ${loan.book_id}`}</span>
-                                                        <span>•</span>
+                                                        <span className="hidden sm:inline">•</span>
                                                         <span>{user ? user.name : `مستخدم ID: ${loan.user_id}`}</span>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div className="flex items-center gap-4">
+                                            <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto mt-2 sm:mt-0">
                                                 <div className="text-left">
                                                     <p className="text-xs text-gray-500">تاريخ الإرجاع</p>
-                                                    <p className={`text-sm font-bold ${isOverdue ? 'text-red-600' : 'text-gray-700'}`}>
+                                                    <p className={`text-sm font-bold ${isOverdue ? 'text-red-600' : 'text-gray-700'}`} dir="ltr">
                                                         {formatDate(loan.due_date)}
                                                     </p>
                                                 </div>
