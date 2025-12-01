@@ -378,19 +378,30 @@ export default function Loans() {
 
                             <div>
                                 <label htmlFor="due_date" className="block text-sm font-medium text-gray-700">تاريخ الإرجاع</label>
-                                <input
-                                    type="date"
-                                    name="due_date"
-                                    id="due_date"
-                                    required
-                                    value={formData.due_date}
-                                    onChange={e => {
-                                        setFormData({ ...formData, due_date: e.target.value })
-                                        setLoanDuration('custom')
-                                    }}
-                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border p-2.5 text-center font-sans"
-                                    style={{ direction: 'ltr' }}
-                                />
+                                <div className="relative mt-1">
+                                    {/* Custom Display Div */}
+                                    <div className="w-full border border-gray-300 rounded-md shadow-sm py-2.5 px-3 bg-white text-gray-900 sm:text-sm h-[42px] flex items-center justify-end" dir="ltr">
+                                        {formData.due_date ? (
+                                            <span className="font-sans font-medium">{formData.due_date}</span>
+                                        ) : (
+                                            <span className="text-gray-400 font-sans">dd/mm/yyyy</span>
+                                        )}
+                                    </div>
+
+                                    {/* Invisible Input Trigger */}
+                                    <input
+                                        type="date"
+                                        name="due_date"
+                                        id="due_date"
+                                        required
+                                        value={formData.due_date}
+                                        onChange={e => {
+                                            setFormData({ ...formData, due_date: e.target.value })
+                                            setLoanDuration('custom')
+                                        }}
+                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                    />
+                                </div>
                                 {errors.due_date && <p className="mt-1 text-xs text-red-600 font-semibold">{errors.due_date}</p>}
                             </div>
                         </div>
