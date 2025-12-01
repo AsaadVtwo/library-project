@@ -142,13 +142,13 @@ export default function Users() {
 
             {/* Users List */}
             <div className="bg-white shadow-md rounded-xl border border-gray-100 overflow-hidden">
-                <div className="px-6 py-5 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                <div className="px-6 py-5 border-b border-gray-100 bg-gray-50 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <h3 className="text-lg font-bold text-gray-800">قائمة المستخدمين</h3>
-                    <div className="relative">
+                    <div className="relative w-full sm:w-64">
                         <input
                             type="text"
                             placeholder="بحث عن مستخدم..."
-                            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

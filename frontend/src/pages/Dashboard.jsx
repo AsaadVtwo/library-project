@@ -226,21 +226,21 @@ export default function Dashboard() {
                         filteredBooks.map((book) => (
                             <li key={book.id} className="hover:bg-gray-50 transition-colors">
                                 <div className="px-6 py-5">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex-1 min-w-0">
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                        <div className="flex-1 min-w-0 w-full">
                                             <p className="text-lg font-bold text-indigo-700">{book.title}</p>
-                                            <div className="mt-1 flex items-center text-sm text-gray-500 gap-4">
+                                            <div className="mt-1 flex flex-wrap items-center text-sm text-gray-500 gap-2 sm:gap-4">
                                                 <span className="flex items-center gap-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                                     </svg>
                                                     {book.author}
                                                 </span>
-                                                <span className="hidden sm:inline text-gray-300">|</span>
-                                                <span className="hidden sm:inline">ISBN: {book.isbn}</span>
+                                                <span className="text-gray-300">|</span>
+                                                <span>ISBN: {book.isbn}</span>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-3">
+                                        <div className="flex items-center justify-end gap-3 w-full sm:w-auto">
                                             <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${book.is_available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                                                 {book.is_available ? 'متاح' : 'معار'}
                                             </span>
