@@ -388,7 +388,8 @@ export default function Loans() {
                                         setFormData({ ...formData, due_date: e.target.value })
                                         setLoanDuration('custom')
                                     }}
-                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border p-2.5 force-ltr-date font-sans"
+                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border p-2.5 text-center font-sans"
+                                    style={{ direction: 'ltr' }}
                                 />
                                 {errors.due_date && <p className="mt-1 text-xs text-red-600 font-semibold">{errors.due_date}</p>}
                             </div>
