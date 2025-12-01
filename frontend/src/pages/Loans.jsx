@@ -389,7 +389,9 @@ export default function Loans() {
                                         setLoanDuration('custom')
                                     }}
                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border p-2.5 text-left font-sans"
-                                    style={{ direction: 'ltr' }}
+                                    style={{ direction: 'ltr', textAlign: 'left' }}
+                                    dir="ltr"
+                                    lang="en"
                                 />
                                 {errors.due_date && <p className="mt-1 text-xs text-red-600 font-semibold">{errors.due_date}</p>}
                             </div>
